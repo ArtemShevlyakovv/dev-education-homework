@@ -1,0 +1,86 @@
+
+//1)Если а – четное посчитать а*б, иначе а+б
+var a = Number(prompt('Введите первое число'));
+var b = Number(prompt('Введите второе число'));
+
+if (a % 2 == 0) {
+    alert(`result = ${a + b}`);
+
+} else { alert(`result = ${a * b}`) }
+
+
+//2) Определить какой четверти принадлежит точка с координатами (х,у)
+
+var x = Number(prompt('Введите координату x:'));
+var y = Number(prompt('Введите координату y:'));
+
+
+if (x > 0 && y > 0) {
+    alert('Первая четверть');
+}
+else if (x < 0 && y > 0) {
+    alert('Первая четверть');
+}
+else if (x < 0 && y < 0) {
+    alert('Третья четверть');
+}
+else if (x > 0 && y < 0) {
+    alert('четвёртая четверть');
+}
+else ('Точка начала координат, либо одна из осей');
+
+
+
+//3) Найти суммы только положительных из трех чисел
+
+var sum;
+
+var a = Number(prompt('Введите первое число'));
+var b = Number(prompt('Введите второе число'));
+var c = Number(prompt('Введите третье число'));
+
+
+if (a > 0) { sum += a };
+if (b > 0) { sum += b };
+if (b > 0) { sum += c };
+alert(sum);
+
+
+
+//4.Посчитать выражение (макс(а*б*с, а+б+с))+3
+
+var a = Number(prompt('Введите первое число'));
+var b = Number(prompt('Введите второе число'));
+var c = Number(prompt('Введите третье число'));
+
+var sum = a + b + c;
+var com = a * b * c;
+var result;
+
+if (sum > com) {
+    result = sum + 3;
+}
+else {
+    result = com + 3;
+}
+
+alert(result);
+
+
+//5) Написать программу определения оценки студента по его рейтингу, на основе следующих правил
+//0-19 F      20-39 E     40-59 D     60-74 C     75-89 B     90-100 A
+
+var mark = Number(prompt('Введите вашу оценку'));
+var markLetter;
+
+if (mark < 20) { markLetter = 'F' }
+else if (mark < 40) { markLetter = 'E' }
+else if (mark < 60) { markLetter = 'D' }
+else if (mark < 75) { markLetter = 'C' }
+else if (mark < 90) { markLetter = 'B' }
+else if (score <= 100) markLetter = "A";
+else { markLetter = 'Not correct.' }
+
+alert(`Your mark: ${markLetter}`);
+
+
