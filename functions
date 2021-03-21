@@ -1,0 +1,102 @@
+//Получить строковое название дня недели по номеру дня. 
+function checkDay(_day) {
+    switch (Number(_day)) {
+        case 1:
+            return ("Monday");
+            break;
+        case 2:
+            return ("Tuesday");
+            break;
+        case 3:
+            return ("Wednesday");
+            break;
+        case 4:
+            return ("Thursday");
+            break;
+        case 5:
+            return ("Friday");
+            break;
+        case 6:
+            return ("Saturday");
+            break;
+        case 7:
+            return ("Sunday");
+            break;
+        default:
+            return ("Error!");
+            break;
+    }
+}
+
+// второй вариант
+var day = prompt('Номер дня недели?',);
+alert(checkDay(day));
+
+
+function checkDay(_day) {
+
+    if (Number(_day == 1)) { return 'Monday' }
+    else if (Number(_day == 2)) { return 'Tuesday' }
+    else if (Number(_day == 3)) { return 'Wednesday' }
+    else if (Number(_day == 4)) { return 'Thursday' }
+    else if (Number(_day == 5)) { return 'Friday' }
+    else if (Number(_day == 6)) { return 'Saturday' }
+    else if (Number(_day == 7)) { return 'Sunday' }
+    else { return 'Error' }
+}
+var day = prompt('Номер дня недели?',);
+alert(checkDay(day));
+
+
+//Найти расстояние между двумя точками в двухмерном декартовом пространстве.
+
+function diff (num1, num2) {
+    if (num1 > num2) {
+      return (num1 - num2);
+    } else {
+      return (num2 - num1);
+    }
+  };
+
+  function dist (x1, y1, x2, y2) {
+    var deltaX = diff(x1, x2);
+    var deltaY = diff(y1, y2);
+    var dist = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));
+    return (dist);
+  };
+ 
+
+
+var arrBelow20 = ["ноль", "один", "два", "три", "четыре", "пять", "шесть", "семь", "восемь", "девять", "десять", "одиннадцать", "двенадцать", "тринадцать", "четырнадцать", "пятнадцать", "шестнадцать", "семнадцать", "восемнадцать", "девятнадцать"]
+var Ten
+var Tens = {"сто", "десять", "двадцать", "тридцать", "сорок", "пятьдесят", "шестьдесят", "семьдесят", "восемьдесят", "девяносто"};
+var Thousan  = {"тысяча", "сто", "двести", "триста", "четыреста", "пятьсот", "шестьсот", "семьсот", "восемьсот", "девятьсот"};
+while (true) {
+    if ( number < 0 || number > 1000 ) {
+        alert(ы                               'Попробуй ещё раз!');
+        continue;
+    }
+
+    if ( number < 20 )
+        return BELOW_TWENTY[number];
+    if (number > 10 && number < 100 ) {
+        int high = number / 10;
+        int low = number % 10;
+        String text = TENS[high];
+        if ( low != 0 )
+            text = text + " " + BELOW_TWENTY[low];
+        return text;
+    }
+    if (number > 100 && number < 1000) {
+        int high = number / 100;
+        int low = number % 10;
+        String text = THOUSANDS[high];
+        if ( low != 0 )
+            text = text + " " +TENS[low] + " " +BELOW_TWENTY[low] ;
+        return text;
+    }
+    else if (number == 100) {
+        return (TENS[0]); }
+}
+}
+}
