@@ -1,0 +1,140 @@
+//1
+var str = '';
+for (i = 0; i < 8; i++) {
+    for (j = 0; j < 8; j++) {
+        str += '*';
+    }
+    str += '\n';
+}
+console.log(str);
+
+
+//2
+
+var str1 = '';
+for (i = 0; i < 8; i++) {
+    for (j = 0; j < 8; j++) {
+        if (i == 0 || i == 7 || j == 0 || j == 7) {
+            str1 += " * ";
+        } else {
+            str1 += "   ";
+        }
+    }
+    str1 += "\n";
+}
+console.log(str1)
+
+//3
+
+var str2 = '';
+
+for (i = 0; i < 8; i++) {
+    for (j = 0; j < 8; j++) {
+        if (i == 0 || j == 7 - i || j == 0) {
+            str2 += " * "
+        } else {
+            str2 += "   ";
+        }
+    }
+    str2 += "\n";
+}
+console.log(str2)
+
+
+//4
+
+var str3 = "";
+for (i = 0; i < 8; i++) {
+    for (j = 0; j < 8; j++) {
+        if (i == 7 || j == 0 || i == j) {
+            str3 += " * ";
+        } else {
+            str3 += "   "
+        }
+    }
+    str3 += "\n";
+}
+console.log(str3)
+
+
+//5
+
+var str4 = "";
+for (i = 0; i < 8; i++) {
+    for (j = 0; j < 8; j++) {
+        if (j == 8 || i == 8 || j == 9 - i) {
+            str4 += "* ";
+        } else {
+            str4 += "  "
+        }
+    }
+    str4 += "\n";
+}
+console.log(str4);
+
+
+console.log("\n");
+
+
+// 6. 
+var str5 = "";
+for (i = 0; i < 8; i++) {
+    for (j = 0; j < 8; j++) {
+        if (i == 8 || i == 0 || i == j) {
+            str5 += " * ";
+        } else {
+            str5 += "  "
+        }
+    }
+    str5 += "\n";
+}
+console.log(str5)
+
+// 7.
+
+var str6 = "";
+for (i = 0; i < 8; i++) {
+    for (j = 0; j < 8; j++) {
+        if (j == i || j == (7 - i)) {
+            str6 += " * "
+        } else {
+            str6 += "   "
+        }
+    }
+    str6 += "\n"
+}
+console.log(str6)
+
+// 8
+var str7 = "";
+for (i = 0; i < 7; i++) {
+    for (j = 0; j < 7; j++) {
+        if (i == 0 || (j == 7 - i) || j == i || i < 4) {
+            str7 += " * ";
+        } else {
+            str7 += "   "
+        }
+    }
+    str7 += "\n"
+}
+
+console.log(str7)
+
+
+var str8 = '';
+
+for (var i = 0; i < 7; i++) {
+    for (var j = 0; j < 7; j++) {
+        if (i === 7 ||
+            ((j === (8 - i) || (j === i)) &&
+                i > 3)
+        ) {
+            str8 += '* ';
+        } else {
+            str8 += '  ';
+        }
+    }
+    str8 += '\n';
+}
+
+console.log(str8)
