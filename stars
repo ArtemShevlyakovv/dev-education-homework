@@ -2,11 +2,11 @@
 var str = '';
 for (i = 0; i < 8; i++) {
     for (j = 0; j < 8; j++) {
-        str += '*';
+        str += ' * ';
     }
     str += '\n';
 }
-console.log(str);
+console.log('Первый\n' + str);
 
 
 //2
@@ -22,7 +22,7 @@ for (i = 0; i < 8; i++) {
     }
     str1 += "\n";
 }
-console.log(str1)
+console.log('Второй\n' + str1)
 
 //3
 
@@ -38,7 +38,7 @@ for (i = 0; i < 8; i++) {
     }
     str2 += "\n";
 }
-console.log(str2)
+console.log('Третий\n' + str2)
 
 
 //4
@@ -54,41 +54,55 @@ for (i = 0; i < 8; i++) {
     }
     str3 += "\n";
 }
-console.log(str3)
+console.log('Четвёртый\n' + str3)
 
 
 //5
 
+
 var str4 = "";
-for (i = 0; i < 8; i++) {
-    for (j = 0; j < 8; j++) {
-        if (j == 8 || i == 8 || j == 9 - i) {
-            str4 += "* ";
-        } else {
-            str4 += "  "
+
+for (var i = 1, x = 8; i < 9; i++, x--) {
+    for (let j = 1; j < 9; j++) {
+        if (i == 8) {
+            str4 += ' * '
+        }
+        else {
+            if (j == 8 || j == x) {
+                str4 += ' * '
+            }
+            else str4 += '   '
         }
     }
-    str4 += "\n";
+    str4 += '\n'
 }
-console.log(str4);
+
+console.log('Пятый\n' + str4);
 
 
 console.log("\n");
 
 
 // 6. 
-var str5 = "";
-for (i = 0; i < 8; i++) {
-    for (j = 0; j < 8; j++) {
-        if (i == 8 || i == 0 || i == j) {
-            str5 += " * ";
-        } else {
-            str5 += "  "
+
+var str5 = '';
+
+for (let i = 1, x = 1; i < 9; i++, x++) {
+    for (let j = 1; j < 9; j++) {
+        if (i == 1) {
+            str5 += ' * '
+        }
+        else {
+            if (j == 8 || j == x) {
+                str5 += ' * '
+            }
+            else str5 += '   '
         }
     }
-    str5 += "\n";
+    str5 += '\n'
 }
-console.log(str5)
+console.log('Шестой\n' + str5)
+
 
 // 7.
 
@@ -103,38 +117,48 @@ for (i = 0; i < 8; i++) {
     }
     str6 += "\n"
 }
-console.log(str6)
-
-// 8
-var str7 = "";
-for (i = 0; i < 7; i++) {
-    for (j = 0; j < 7; j++) {
-        if (i == 0 || (j == 7 - i) || j == i || i < 4) {
-            str7 += " * ";
-        } else {
-            str7 += "   "
-        }
-    }
-    str7 += "\n"
-}
-
-console.log(str7)
+console.log('Cедьмой\n' + str6)
 
 
-var str8 = '';
+//8
 
-for (var i = 0; i < 7; i++) {
+var str7 = ""
+
+for (var i = 0, x = 6; i < 7; i++, x--) {
     for (var j = 0; j < 7; j++) {
-        if (i === 7 ||
-            ((j === (8 - i) || (j === i)) &&
-                i > 3)
-        ) {
-            str8 += '* ';
-        } else {
-            str8 += '  ';
+        if (i == 0) {
+            str7 += ' * '
+        }
+        else {
+            if (j == i && j <= x || j == x && j >= i) {
+                str7 += ' * '
+            }
+            else str7 += '   '
         }
     }
-    str8 += '\n';
+    str7 += '\n'
 }
 
-console.log(str8)
+console.log('Восьмой\n\n' + str7)
+
+
+//9
+
+var str8 = ''
+
+for (var i = 1, x = 7; i < 8; i++, x--) {
+    for (var j = 1; j < 8; j++) {
+        if (i == 7) {
+            str8 += ' * '
+        }
+        else {
+            if (j == i && j >= x || j == x && j <= i) {
+                str8 += ' * '
+            }
+            else str8 += '   '
+        }
+    }
+    str8 += '\n'
+}
+
+console.log('Девятый\n' + str8);
