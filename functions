@@ -1,6 +1,10 @@
+//Функции
+
+
+
 //Получить строковое название дня недели по номеру дня. 
-function checkDay(_day) {
-    switch (Number(_day)) {
+function weekDay(day) {
+    switch (Number(day)) {
         case 1:
             return ("Monday");
             break;
@@ -28,75 +32,161 @@ function checkDay(_day) {
     }
 }
 
-// второй вариант
-var day = prompt('Номер дня недели?',);
-alert(checkDay(day));
+console.log(weekDay(7));
 
-
-function checkDay(_day) {
-
-    if (Number(_day == 1)) { return 'Monday' }
-    else if (Number(_day == 2)) { return 'Tuesday' }
-    else if (Number(_day == 3)) { return 'Wednesday' }
-    else if (Number(_day == 4)) { return 'Thursday' }
-    else if (Number(_day == 5)) { return 'Friday' }
-    else if (Number(_day == 6)) { return 'Saturday' }
-    else if (Number(_day == 7)) { return 'Sunday' }
-    else { return 'Error' }
-}
-var day = prompt('Номер дня недели?',);
-alert(checkDay(day));
 
 
 //Найти расстояние между двумя точками в двухмерном декартовом пространстве.
 
-function diff (num1, num2) {
+function diff(num1, num2) {
     if (num1 > num2) {
-      return (num1 - num2);
+        return (num1 - num2);
     } else {
-      return (num2 - num1);
+        return (num2 - num1);
     }
-  };
+};
 
-  function dist (x1, y1, x2, y2) {
+function dist(x1, y1, x2, y2) {
     var deltaX = diff(x1, x2);
     var deltaY = diff(y1, y2);
     var dist = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));
     return (dist);
-  };
- 
+};
+
+console.log(dist(1, 1, 2, 2));
 
 
-var arrBelow20 = ["ноль", "один", "два", "три", "четыре", "пять", "шесть", "семь", "восемь", "девять", "десять", "одиннадцать", "двенадцать", "тринадцать", "четырнадцать", "пятнадцать", "шестнадцать", "семнадцать", "восемнадцать", "девятнадцать"]
-var Ten
-var Tens = {"сто", "десять", "двадцать", "тридцать", "сорок", "пятьдесят", "шестьдесят", "семьдесят", "восемьдесят", "девяносто"};
-var Thousan  = {"тысяча", "сто", "двести", "триста", "четыреста", "пятьсот", "шестьсот", "семьсот", "восемьсот", "девятьсот"};
-while (true) {
-    if ( number < 0 || number > 1000 ) {
-        alert(ы                               'Попробуй ещё раз!');
-        continue;
+
+
+//3.Вводим число(0-999), получаем строку с прописью числа.
+function getString(num) {
+    var str = "";
+    var hundreds = ["", "сто", "двести", "триста", "четыреста",
+        "пятьсот", "шестьсот", "семьсот", "восемьсот", "девятьсот"];
+    var dozens = ["", "десять", "двадцать", "тридцать", "сорок",
+        "пятьдесят", "шестьдесят", "семьдесят", "восемьдесят", "девяносто"];
+    var elevenToNineteen = ["", "одиннадцать", "двенадцать", "тринадцать",
+        "четырнадцать", "пятнадцать", "шестнадцать", "семнадцать", "восемнадцать", "девятнадцать"];
+    var units = ["", "один", "два", "три", "четыре", "пять", "шесть", "семь", "восемь", "девять"];
+    var strZero = "ноль";
+    if (num >= 0 && num <= 999) {
+
+        //сотни
+        var indexOfhundreds = Math.floor(num / 100);
+        str += hundreds[indexOfhundreds] + " ";
+
+        num = num % 100;
+        if (num > 10 && num < 20) {
+            // от 11 до 19 (включительно)
+            var indexElevenToNineteen = num % 10;
+            str += elevenToNineteen[indexElevenToNineteen] + " ";
+        }
+        else if (num >= 20 || num === 10) {
+            // десятки
+            var indexDozens = Math.floor(num / 10);
+            str += dozens[indexDozens] + " ";
+            if (num / 10 < 1) { //если есть 0 => 105
+                var indexUnits = num % 10;
+                str += units[indexUnits];
+            }
+
+            //единицы
+            var indexUnits = num % 10;
+            str += units[indexUnits];
+        }
+        else if (num > 0 && num < 10) {
+            str += units[num];
+        }
+        else if (num % 10 === 0) {
+            str += strZero;
+        }
+        return str;
+    }
+    return "Incorrect input data";
+}
+console.log(getString(895));
+
+
+// Вводим строку, которая содержит число, написанное прописью (0-999). Получить само число
+function pseudoSplit(string, divideSign) {
+    var result = []
+    var word = ''
+    for (let i = 0; i < string.length; i++) {
+        if (string[i] === divideSign) {
+            result.push(word)
+            word = ''
+        }
+        else word += string[i]
+    }
+    result.push(word)
+    return result
+}
+
+function wordConvertToNumber(word) {
+    var wordArr = pseudoSplit(word.toLowerCase(), ' ')
+
+    var nums = {
+        'один': 1, 'два': 2, 'три': 3, 'четыре': 4, 'пять': 5, 'шесть': 6,
+        'семь': 7, 'восемь': 8, 'девять': 9, 'десять': 10, 'одиннадцать': 11,
+        'двенадцать': 12, 'тринадцать': 13, 'четырнадцать': 14, 'пятнадцать': 15,
+        'шестнадцать': 16, 'семнадцать': 17, 'восемнадцать': 18, 'девятнадцать': 19, 'двадцать': 20, 'тридцать': 30, 'сорок': 40, 'пятьдесят': 50,
+        'шестьдесят': 60, 'семьдесят': 70, 'восемьдесят': 80, 'девяносто': 90, '': '', 'сто': 100, 'двести': 200, 'триста': 300, 'четыреста': 400,
+        'пятьсот': 500, 'шестьсот': 600, 'семьсот': 700, 'восемьсот': 800, 'девятьсот': 900
     }
 
-    if ( number < 20 )
-        return BELOW_TWENTY[number];
-    if (number > 10 && number < 100 ) {
-        int high = number / 10;
-        int low = number % 10;
-        String text = TENS[high];
-        if ( low != 0 )
-            text = text + " " + BELOW_TWENTY[low];
-        return text;
+    var result = 0
+    for (var i = 0; i < wordArr.length; i++) {
+        for (num in nums) {
+            if (num === wordArr[i]) result += nums[num]
+        }
     }
-    if (number > 100 && number < 1000) {
-        int high = number / 100;
-        int low = number % 10;
-        String text = THOUSANDS[high];
-        if ( low != 0 )
-            text = text + " " +TENS[low] + " " +BELOW_TWENTY[low] ;
-        return text;
+    return result
+}
+
+
+/*4.	Вводим строку, которая содержит число, написанное прописью (0-999).
+ Получить само число*/
+
+function fromString(str) {
+    var arrayString = str.split(" ");
+    var result = 0;
+
+    var arrayHundreds = ["", "сто", "двести", "триста", "четыреста",
+        "пятьсот", "шестьсот", "семьсот", "восемьсот", "девятьсот"];
+    var arrayDozens = ["", "десять", "двадцать", "тридцать", "сорок",
+        "пятьдесят", "шестьдесят", "семьдесят", "восемьдесят", "девяносто"];//
+    var arrayUnits = ["", "один", "два", "три", "четыре", "пять", "шесть", "семь", "восемь", "девять"];
+    for (var i = 0; i < arrayString.length; i++) {
+        for (var j = 0; j < arrayHundreds.length; j++) { //проверка сотни
+            if (arrayString[i].includes(arrayHundreds[j])) {
+                var result1 = j * 100;
+            }
+        }
+        result += result1;
+        for (var k = 0; k < arrayDozens.length; k++) { // проверка десятки, не работает на 80 и 90 
+            if (arrayString[i].includes(arrayDozens[k])) {
+                var result2 = k * 10;
+            }
+        }
+        result += result2;
+        switch (arrayString[i]) { //проверка от 11 до 19
+            case "одиннадцать": result += 11; break;
+            case "двенадцать": result += 12; break;
+            case "тринадцать": result += 13; break;
+            case "четырнадцать": result += 14; break;
+            case "пятнадцать": result += 15; break;
+            case "шестнадцать": result += 16; break;
+            case "семнадцать": result += 17; break;
+            case "восемнадцать": result += 18; break;
+            case "девятнадцать": result += 19; break;
+        }
+        for (var k = 0; k < arrayUnits.length; k++) { //проверка цифры
+            if (arrayString[i].includes(arrayUnits[k])) {
+                var result4 = k;
+            }
+        }
     }
-    else if (number == 100) {
-        return (TENS[0]); }
+    return result + result4;
 }
-}
-}
+console.log(fromString("сто сорок семь"));
+console.log(fromString("девятьсот восемнадцать"));
