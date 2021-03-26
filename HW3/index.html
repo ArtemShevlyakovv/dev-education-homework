@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess Number Application</title>
+    <link rel="stylesheet" href="stylek.css">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+    <div class="wrapper">
+
+        <h1>Угадай-ка число!</h1>
+        <p>Угадай рандомное число между <span class="min-text">1</span> и <span class="max-text">100</span></p>
+        <p> У тебя <span class="attempts-text">5</span> попыток(попытки)</p>
+
+        <div class="guessing">
+            <input type="number" class="guessField" placeholder="Введите ваше число"> <br>
+            <input type="submit" class="guessSubmit" value="Submit">
+        </div>
+        <p class="guesses"> </p>
+        <p class="lastResult"> </p>
+        <p class="lowOrHi"> </p>
+        <p class="maxMinErr"> </p>
+
+        <div class="settings">
+            <p class="range">Задай-ка диапазон!</p>
+            <p>Выбери кол-во попыток и диапазон (мин 1, а макс 200)</p>
+
+            <input type="number" class="attempts" placeholder="Количество попыток (от 1 до 15)">
+
+            <input type="number" class="minValue" placeholder="Нижняя граница:">
+
+            <input type="number" class="maxValue" placeholder="Верхняя граница:">
+
+            <input type="submit" value="Применить диапазон" class="goRange">
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+
+</html>
