@@ -1,0 +1,313 @@
+/*
+Найти минимальный элемент массива
+Найти максимальный элемент массива
+Найти индекс минимального элемента массива
+Найти индекс максимального элемента массива 
+Посчитать сумму элементов массива с нечетными индексами
+Сделать реверс массива (массив в обратном направлении)
+Посчитать количество нечетных элементов массива
+*/
+
+//1. Найти минимальный элемент массива
+/*
+var array = [8,7,5,23,10];
+
+var min = array[0];
+for(var i = 0; i < array.length; ++i)
+{
+    if(array[i] < min)
+    {
+        min = array[i];
+    }
+}
+*/
+
+
+//2. Найти максимальный элемент массива
+
+/*
+var array = [8,7,5,23,10];
+var max = array[0];
+for(var i = 0; i < array.length; ++i)
+{
+    if(array[i] > max)
+    {
+        max = array[i];
+    }
+}
+console.log(max);
+
+*/
+
+//3. Найти индекс минимального элемента массива
+
+/*
+var array = [8, 7, 45, 23, 10, 2];
+
+var min = array[0];
+var minIndex = 0;
+
+for (var i = 1; i < array.length; i++) {
+    if (array[i] < min) {
+        minIndex = i;
+        min = array[i];
+    }
+}
+alert(minIndex);
+*/
+
+
+//4. Найти индекс максимального элемента массива
+
+/*
+var array = [8, 7, 5, 23, 10];
+
+var max = array[0];
+var maxIndex = 0;
+
+for (var i = 1; i < array.length; i++) {
+    if (array[i] > max) {
+        maxIndex = i;
+        max = array[i];
+    }
+}
+alert(maxIndex);
+*/
+
+//5. Посчитать сумму элементов массива с нечетными индексами
+/*
+var array = [2, 3, 4, 6, 7, 5, 8, 10]; // нумерация начинается с 0, значит нечетные индексы у 3, 6,5,10
+
+var sumElem = 0;
+for (var i = 0; i < array.length - 1; i++) {
+    if (Number(array.indexOf(i)) % 2 != 0) {
+        sumElem += array[i];
+    }
+    else { continue }
+}
+alert(sumElem);
+*/
+
+//6.Сделать реверс массива (массив в обратном направлении)
+/*
+var arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+var temp;
+for (var i = 0, j = arr.length - 1; i < j; i++, j--) {
+    temp = arr[j];
+    arr[j] = arr[i];
+    arr[i] = temp;
+}
+alert(arr);
+*/
+
+//7.Посчитать количество нечетных элементов массива
+/*
+var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+var counter = 0;
+for (var i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 != 0) {
+        counter++
+    }
+
+}
+alert(counter);
+*/
+
+
+//8.Поменять местами первую и вторую половину массива, например, для массива 
+//1 2 3 4, результат 3 4 1 2
+/*
+var array = [1, 2, 3, 4, 5, 6];
+
+for (var i = 0; i < array.length / 2; i++) {
+    var t = array[i];
+    array[i] = array[(array.length / 2) + i];
+    array[(array.length / 2) + i] = t;
+}
+
+alert(array);
+*/
+
+//9.Отсортировать массив (пузырьком (Bubble), выбором (Select), вставками (Insert)) 
+
+//Bubble
+/*
+var arr = [10, 12, 0, 1, 7, 6];
+
+for (var i = 0, endI = arr.length - 1; i < endI; i++) {
+    for (var j = 0, endJ = endI - i; j < endJ; j++) {
+        if (arr[j] > arr[j + 1]) {
+            var swap = arr[j];
+            arr[j] = arr[j + 1];
+            arr[j + 1] = swap;
+        }
+    }
+}
+alert(arr);
+*/
+
+//Select
+/*
+var arr = [10, 12, 0, 1, 7, 6];
+
+for (var i = 0; i < arr.length; i++) {
+    // Finding the smallest number in the subarray
+    var min = i;
+    for (let j = i + 1; j < arr.length; j++) {
+        if (arr[j] < arr[min]) {
+            min = j;
+        }
+    }
+    if (min != i) {
+        // Swapping the elements
+        var tmp = arr[i];
+        arr[i] = arr[min];
+        arr[min] = tmp;
+    }
+}
+alert(arr);
+*/
+
+//Insert
+/*
+var arr = [10, 12, 0, 1, 7, 6];
+for (var i = 1; i < arr.length; i++) {
+    var j = i - 1
+    var tmp = arr[i]
+    while (j >= 0 && arr[j] > tmp) {
+        arr[j + 1] = arr[j]
+        j--
+    }
+    arr[j + 1] = tmp
+}
+
+alert(arr);
+*/
+
+// 10. Отсортировать массив (Quick, Merge, Shell, Heap)
+/*
+function swap(items, leftIndex, rightIndex){
+    var temp = items[leftIndex];
+    items[leftIndex] = items[rightIndex];
+    items[rightIndex] = temp;
+}
+
+function partition(items, left, right) {
+    var pivot   = items[Math.floor((right + left) / 2)], //middle element
+        i       = left, //left pointer
+        j       = right; //right pointer
+    while (i <= j) {
+        while (items[i] < pivot) {
+            i++;
+        }
+        while (items[j] > pivot) {
+            j--;
+        }
+        if (i <= j) {
+            swap(items, i, j); //swap two elements
+            i++;
+            j--;
+        }
+    }
+    return i;
+}
+*/
+
+//Merge Sort
+
+/*
+function merge (left, right) {
+  var resultArray = [], leftIndex = 0, rightIndex = 0;
+
+  // We will concatenate values into the resultArray in order
+  while (leftIndex < left.length && rightIndex < right.length) {
+    if (left[leftIndex] < right[rightIndex]) {
+      resultArray.push(left[leftIndex]);
+      leftIndex++; // move left array cursor
+    } else {
+      resultArray.push(right[rightIndex]);
+      rightIndex++; // move right array cursor
+    }
+  }
+
+  // We need to concat here because there will be one element remaining
+  // from either left OR the right
+  return resultArray
+          .concat(left.slice(leftIndex))
+          .concat(right.slice(rightIndex));
+}
+*/
+
+//Shell
+/*
+function shellSort(arr) {
+	var n = arr.length;
+
+	for (var gap = Math.floor(n/2); gap > 0; gap = Math.floor(gap/2))	{
+		for (var i = gap; i < n; i += 1)  {
+			var temp = arr[i];
+			
+			var j;
+			for (j = i; j >= gap && arr[j-gap] > temp; j-=gap)  {
+				arr[j] = arr[j-gap];
+			}
+
+			arr[j] = temp;
+		}
+	}
+
+	return arr;
+}
+*/
+
+//Heap
+/*
+var a = [ 9, 10, 2, 1, 5, 4, 3, 6, 8, 7, 13 ];
+
+function swap(a, i, j) {
+    var tmp = a[i];
+    a[i] = a[j];
+    a[j] = tmp;
+}
+
+function max_heapify(a, i, length) {
+    while (true) {
+        var left = i*2 + 1;
+        var right = i*2 + 2;
+        var largest = i;
+
+        if (left < length && a[left] > a[largest]) {
+            largest = left;
+        }
+
+        if (right < length && a[right] > a[largest]) {
+            largest = right;
+        }
+
+        if (i == largest) {
+            break;
+        }
+
+        swap(a, i, largest);
+        i = largest;
+    }
+}
+
+function heapify(a, length) {
+    for (var i = Math.floor(length/2); i >= 0; i--) {
+        max_heapify(a, i, length);
+    }
+}
+
+function heapsort(a) {
+    heapify(a, a.length);
+
+    for (var i = a.length - 1; i > 0; i--) {
+        swap(a, i, 0);
+
+        max_heapify(a, 0, i-1);
+    }
+}
+
+heapsort(a);
+*/
